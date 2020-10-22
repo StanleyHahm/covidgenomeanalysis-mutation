@@ -21,6 +21,9 @@ public class CovidMutation{
   Special cases include where the total length of the string
   divided by the chunk value has a remainder of more than zero.
   This is accounted (and noted) in the first if statement.
+  Other special cases are the chunkvalue is great than
+  length of original DNA strand, chunkvalue is 0 or below, or
+  chunkvalue is 1.
 
   @param og_DNA original DNA strand
 
@@ -98,7 +101,9 @@ public class CovidMutation{
     //this accounts for if the chunksize is 1. The new DNA
     //strand doesn't invert.
     if (chunkSize == 1){
-      new_DNA[0] = charArray[0];
+      for (int w = 0; w < og_DNA.length(); w++){
+        new_DNA[w] = charArray[w];
+      }
     }
     System.out.println(new_DNA);
 
